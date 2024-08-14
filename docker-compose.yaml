@@ -1,0 +1,21 @@
+services:
+  demo-back-end:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3110:3110
+    networks:
+      - demo-resume-network
+    working_dir: /code,
+    volumes:
+      # codebase
+      - /home/zheng/back/demo-backend:/code
+      # m2 repository, so that you don't have to download the dependencies everytime you open the container
+      - /home/zheng/.m2:/root/.m2
+      # share git credentials
+      - /home/zheng/.ssh:/root/.ssh
+
+networks:
+  demo-resume-network:
+    external: true
