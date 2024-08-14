@@ -1,0 +1,55 @@
+{
+    "name": "demo-back-end",
+    "dockerComposeFile": "../docker-compose.yaml",
+    "features": {
+        "ghcr.io/devcontainers/features/java:1": {
+            "version": "none",
+            "installGradle": "false",
+            "installMaven": "true"
+        }
+    },
+    "forwardPorts": [
+        "3110:3110"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "shengchen.vscode-checkstyle",
+                "vscjava.vscode-java-debug",
+                "vscjava.vscode-java-pack",
+                "vscjava.vscode-maven",
+                "yangbaopan.vscode-java-ibatisx",
+                "vscjava.vscode-java-dependency",
+                "vmware.vscode-boot-dev-pack",
+                "vmware.vscode-spring-boot",
+                "vscjava.vscode-java-test",
+                "redhat.vscode-xml",
+                "redhat.vscode-yaml",
+                "redhat.fabric8-analytics",
+                "yzhang.markdown-all-in-one",
+                "mtxr.sqltools",
+                "mtxr.sqltools-driver-mysql",
+                "inferrinizzard.prettier-sql-vscode",
+                "dsznajder.es7-react-js-snippets",
+                "PulkitGangwar.nextjs-snippets",
+                "ms-vscode.vscode-typescript-next",
+                "bradlc.vscode-tailwindcss"
+            ],
+            "settings": {
+                "java.server.launchMode": "Standard",
+                "workbench.editor.wrapTabs": true,
+                "terminal.integrated.fontWeight": "900",
+                "terminal.integrated.fontWeightBold": "900",
+                "workbench.editor.wrapTabs": true
+            }
+        }
+    },
+    // Default path to open when attaching to a new container.
+    "workspaceFolder": "/code",
+    // the name of container is《folder name》+《service name》，this service must match the service name in docker-compose.yaml, because there could be many services in one docker compose file, I have to tell vscode to create container with which service
+    "service": "demo-back-end",
+    // command to be executed after the container is started up
+    "postStartCommand": "sudo chown -R root:root /code",
+    // use root user by default
+    "remoteUser": "root"
+}
